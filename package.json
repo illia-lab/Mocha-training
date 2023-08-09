@@ -1,0 +1,27 @@
+{
+  "name": "mocha-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha $(find specs -name '*.spec.*') --file ./mocha.hooks.js --timeout 500000",
+    "driver:update": "selenium-standalone install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illia-lab/Mocha-training.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/illia-lab/Mocha-training/issues"
+  },
+  "homepage": "https://github.com/illia-lab/Mocha-training#readme",
+  "dependencies": {
+    "assertior": "^0.0.28",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "promod": "^1.7.5"
+  }
+}
