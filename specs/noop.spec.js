@@ -166,13 +166,30 @@ describe('Test Suite 3(Search fields)', () => {
   const producer = $$(`input[placeholder="Виробник"]`).get(0);
   const filterResults = $('.active.brand');
 
-  it.only('test case 1', async () => {
+  it('test case 1', async () => {
     await browser.get('http://localhost:4000/');
     await headerSighIn.click();
     await password.sendKeys('admin');
     await username.sendKeys('admin');
     await sighIn.click();
-    await priceForm.sendKeys(10000);
+    await priceForm.sendKeys(808482);
     await filterButton.click();
+    const res = await $$('.active.price').map((el) => el.getText());
+    console.log(res);
+    expect(res.length).to.eql(0);
+    console.log(res);
+  });
+  it.only('test case 2', async () => {
+    await browser.get('http://localhost:4000/');
+    await headerSighIn.click();
+    await password.sendKeys('admin');
+    await username.sendKeys('admin');
+    await sighIn.click();
+    await workVoulume.sendKeys(6);
+    await filterButton.click();
+    const res = await $$('.active.volume').map((el) => el.getText());
+    console.log(res);
+    expect(res.length).to.eql(0);
+    console.log(res);
   });
 });
