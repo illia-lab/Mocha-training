@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha $(find specs -name '*.spec.*') --file ./mocha.hooks.js --timeout 500000",
+    "test": "mocha $(find specs -name '*.spec.*') --file ./launcher/index.js --timeout 500000",
     "driver:update": "selenium-standalone install"
   },
   "repository": {
@@ -22,6 +22,7 @@
     "assertior": "^0.0.28",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
-    "promod": "^1.7.5"
+    "promod": "^1.7.6",
+    "sat-utils": "^1.10.0"
   }
 }

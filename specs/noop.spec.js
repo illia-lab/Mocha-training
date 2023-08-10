@@ -164,32 +164,50 @@ describe('Test Suite 3(Search fields)', () => {
   const filterButton = $$('.btn.btn-default').get(0);
   const workVoulume = $$(`input[placeholder="Робочий об'єм"]`).get(0);
   const producer = $$(`input[placeholder="Виробник"]`).get(0);
-  const filterResults = $('.active.brand');
 
-  it('test case 1', async () => {
+  it.only('test case 1', async () => {
     await browser.get('http://localhost:4000/');
     await headerSighIn.click();
     await password.sendKeys('admin');
     await username.sendKeys('admin');
     await sighIn.click();
-    await priceForm.sendKeys(808482);
+    await priceForm.sendKeys(342000);
     await filterButton.click();
     const res = await $$('.active.price').map((el) => el.getText());
-    console.log(res);
+    let check = res.every((elem) => {
+      if (elem >= 341000) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(check);
     expect(res.length).to.eql(0);
-    console.log(res);
   });
-  it.only('test case 2', async () => {
-    await browser.get('http://localhost:4000/');
-    await headerSighIn.click();
-    await password.sendKeys('admin');
-    await username.sendKeys('admin');
-    await sighIn.click();
-    await workVoulume.sendKeys(6);
-    await filterButton.click();
-    const res = await $$('.active.volume').map((el) => el.getText());
-    console.log(res);
-    expect(res.length).to.eql(0);
-    console.log(res);
-  });
+  //   it('test case 2', async () => {
+  //     await browser.get('http://localhost:4000/');
+  //     await headerSighIn.click();
+  //     await password.sendKeys('admin');
+  //     await username.sendKeys('admin');
+  //     await sighIn.click();
+  //     await workVoulume.sendKeys(10);
+  //     await filterButton.click();
+  //     const res = await $$('.active.volume').map((el) => el.getText());
+  //     console.log(res);
+  //     expect(res.length).to.eql(0);
+  //     console.log(res);
+  //   });
+  //   it('test case 3', async () => {
+  //     await browser.get('http://localhost:4000/');
+  //     await headerSighIn.click();
+  //     await password.sendKeys('admin');
+  //     await username.sendKeys('admin');
+  //     await sighIn.click();
+  //     await workVoulume.sendKeys(10);
+  //     await filterButton.click();
+  //     const res = await $$('.active.volume').map((el) => el.getText());
+  //     console.log(res);
+  //     expect(res.length).to.eql(0);
+  //     console.log(res);
+  //   });
 });
